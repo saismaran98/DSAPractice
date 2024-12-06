@@ -1,38 +1,64 @@
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# User-specific files
+.idea/
 *.iml
+*.iws
 *.ipr
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# .idea directory
+.idea/*
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# JetBrains folder, which holds cache and other project-specific settings
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/shelf
+.idea/*.bak
+
+### Build directories ###
+target/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+### Dependency directories ###
+.gradle/
+.m2/
 
-### Mac OS ###
+### Log files ###
+*.log
+
+### OS-specific files ###
 .DS_Store
+Thumbs.db
+
+### Maven wrapper files (optional) ###
+.mvn/wrapper/
+
+### Spring Boot-specific files ###
+spring-boot-devtools.jar
+
+### IDE-specific files ###
+# JetBrains files
+.idea/*
+# User-specific files
+*.iml
+.idea/workspace.xml
+
+# JetBrains folder, which holds cache and other project-specific settings
+.idea/*
+
+# Class files
+*.class
+
+# Eclipse project files
+.classpath
+.project
+
+# Maven
+target/
+*.jar
+*.war
+*.ear
+
+# Gradle
+.gradle/
+build/
