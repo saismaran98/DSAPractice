@@ -7,26 +7,66 @@ import java.util.Stack;
 
 public class StackProblems {
 
+    public static boolean isValid(String inputString) {
+
+        // ([{}])
+        Map<Character, Character> closeToOpenMap = new HashMap<>();
+        closeToOpenMap.put(')','(');
+        closeToOpenMap.put('}','{');
+        closeToOpenMap.put(']','[');
+        Stack<Character> stack = new Stack<>();
+        for (char c : inputString.toCharArray()) {
+            if(closeToOpenMap.containsValue(c)){
+                stack.push(c);
+            }
+            if(!stack.isEmpty()){
+                Character top = stack.pop();
+                if(closeToOpenMap.containsValue(c) && !closeToOpenMap.get(top).equals(c))
+                    return false;
+            }else{
+                return false;
+            }
+
+        }
+
+        return stack.isEmpty();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //validParentheses
     public static boolean validParentheses(String inputString){
-        Stack<Character> openParanStack = new Stack<>();
+        Stack<Character> stack = new Stack<>();
         Map<Character, Character> closeParanMapToItsOpen = new HashMap<>();
         closeParanMapToItsOpen.put(')','(');
         closeParanMapToItsOpen.put('}','{');
         closeParanMapToItsOpen.put(']','[');
 
         for(Character c: inputString.toCharArray()){
-            if(closeParanMapToItsOpen.containsKey(c)) {
-                if (!openParanStack.isEmpty() &&
-                        openParanStack.peek() == closeParanMapToItsOpen.get(c))
-                    openParanStack.pop(); //remove the open parantheses for the close param in string.
+            boolean isClosingParan = closeParanMapToItsOpen.containsKey(c);
+            if(isClosingParan) {
+                if (!stack.isEmpty() &&
+                        stack.peek() == closeParanMapToItsOpen.get(c))
+                    stack.pop(); //remove the open parantheses for the close param in string.
                 else
                     return false;
             }
             else
-                openParanStack.push(c); //add open parantheses as its not present in the stack.
+                stack.push(c); //add open parantheses as its not present in the stack.
         }
-        return openParanStack.isEmpty();
+        return stack.isEmpty();
     }
     public static boolean validParanApproach2(String s) {
         if (!(s.length() % 2 == 0)) {
@@ -48,11 +88,13 @@ public class StackProblems {
     }
 
     public static void main(String[] args) {
+        System.out.println( isValid("]]"));
         System.out.println(validParentheses("(({[]}))"));
         System.out.println(validParanApproach2("(({[]}))"));
     }
 }
 class MinStack {
+
     ArrayList<Integer> stack;
     public MinStack() {
         stack = new ArrayList<Integer>();
