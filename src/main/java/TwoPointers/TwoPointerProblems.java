@@ -1,4 +1,4 @@
-package ArraysAndString;
+package TwoPointers;
 
 
 import java.lang.reflect.Array;
@@ -171,7 +171,6 @@ public class TwoPointerProblems {
         Set<Character> seen = new HashSet<>();
         int firstUniqIndex = 0,travelIndex = 0; //two pointers
         int len = 0;
-        List<String> uniqString = new ArrayList<>();
         while(travelIndex < str.length())   { // tranvel index should go till last index of str.
             char curChar = str.charAt(travelIndex);
             if(isUniq(seen, curChar)){  // uniq char
@@ -185,7 +184,7 @@ public class TwoPointerProblems {
 
             }
 
-        }uniqString.forEach(System.out::println);
+        }
 
         return len;
 
