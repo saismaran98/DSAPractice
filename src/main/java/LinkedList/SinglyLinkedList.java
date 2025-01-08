@@ -39,6 +39,19 @@ public class SinglyLinkedList {
             head.next = head;
         }
     }
+    public void insertInIthIndex(int i){
+        MyNode newNode = new MyNode(5);
+        MyNode cur = head;
+        int counter = 0;
+        while(head!=tail && counter++ < i){
+            cur = cur.next;
+        }
+        // insert at ith.
+        newNode.next = cur.next.next;
+        cur.next = newNode;
+        print();
+
+    }
     public int get(int index) {
         int curIndex = 0;
         MyNode curr = head.next;
@@ -84,6 +97,7 @@ public class SinglyLinkedList {
             linkedList.insertEnd(20); // index: 1
             linkedList.insertEnd(30); // index: 2
             linkedList.insertEnd(40); // index: 3
+            linkedList.insertInIthIndex(2); // insert at 2nd index.
             System.out.println("item at index 4 : "+linkedList.get(4));
             // Print the list
             System.out.println("Initial List:");
@@ -108,6 +122,7 @@ public class SinglyLinkedList {
             System.out.println("Attempting to remove element at index 5 (out of bounds):");
             linkedList.remove(5);
             linkedList.print();
+
     }
 }
 

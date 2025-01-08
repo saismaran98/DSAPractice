@@ -149,6 +149,8 @@ public class TwoPointerProblems {
         }
         System.out.println(Arrays.toString(nums1));
     }
+
+
     // Longest Substring without repeating char.
     public static int longestSubStringWithoutRepeatingChar(String s){
         // abcabcbb,
