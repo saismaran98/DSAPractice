@@ -40,6 +40,7 @@ public class ContainDuplicate {
         }
     }
     public static List<List<String>> groupAnagrams(String[] strs) {
+        // not optimized
         if(strs==null || strs.length==0)
             return new ArrayList<>();
         Map<String, List<String>> map = new HashMap<>();
@@ -52,6 +53,27 @@ public class ContainDuplicate {
                 map.put(key, new ArrayList<>());
             }
             map.get(key).add(s);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+    public static List<List<String>> groupAnagrams2(String[] strs) {
+        if(strs==null || strs.length==0)
+            return new ArrayList<>();
+
+        Map<String, List<String>> map = new HashMap<>();
+        // List<String> anagram = new ArrayList<>();
+        for(String s : strs) {
+            // create a key with count of char
+            int[] count = new int[26];
+            for(char c : s.toCharArray()){
+                // create map key for this anagram key
+                count[c - 'a']++;
+            }
+            String key = Arrays.toString(count);
+            map.putIfAbsent(key, new ArrayList<>());
+            map.get(key).add(s);
+
         }
 
         return new ArrayList<>(map.values());
@@ -138,6 +160,7 @@ public static int[] topKSecondApproach(int[] nums, int k){
         containDuplicate.twoSum(new int[]{ 2, 7, 11, 15},9);
         String[] input =new String[] {"eat","tea","tan","ate","nat","bat"};
         groupAnagrams(input);
+        System.out.println(groupAnagrams2(input));
         System.out.println(Arrays.toString(topKFrequent(new int[]{1,1,1,2,2,3,3,3},2 )));
         System.out.println(Arrays.toString(topKSecondApproach(new int[]{1, 1, 1, 2, 2, 3, 3, 3}, 2)));
         System.out.println(Arrays.toString(topKFrequentUsingHeap(new int[]{1, 1, 1, 2, 2, 3, 3, 3}, 2)));
