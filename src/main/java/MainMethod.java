@@ -3,6 +3,7 @@ import ArraysAndString.StaticArray;
 import ArraysAndString.isUnique;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 public class MainMethod {
@@ -41,13 +42,58 @@ public class MainMethod {
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void main(String[] args) {
-        System.out.println("1. isUnique: " +
-                "Is \"abc\" unique ?, output: "+isUnique.isUniqueUsingBitOperator("abc")); //true
-        System.out.println("2. CheckPermutation: abc is permutation of cab?" +
-                "\nisPermutation: " + CheckPermutation.isPermutation("abc", "cab")
-                +"\nisPermutationForASCII: "+ CheckPermutation.isPermutationForASCII("abc", "cab")
-                +"\nispermutationUsingHashMap: "+CheckPermutation.ispermutationUsingHashMap("abc ", "cab "));
-        testStaticArray();
+    public long sum(long n){
+        int sum = 0;
+        // check for s num
+        for(int i = 0;i < n;i++) {
+            if (isSNum(i))
+                sum += i;
+        }
+        return sum;
     }
+    public boolean isSNum(long l){
+        double sqrt = Math.sqrt(l);
+        // for for T(N) 1..N size of L
+        return false;
+    }
+    public static void main(String[] args) {
+        /*
+        * We define an S-number to be a natural number, n, that is a perfect square
+        * and its square root can be obtained by splitting the decimal representation
+        *  of n into 2 or more numbers then adding the numbers.
+
+
+
+For example, 81 is an S-number because
+
+sq.rt of 81 = 8 + 1
+
+
+
+6724 is an S-number:
+
+sq.rt of 6724 = 6 + 72 + 4
+
+
+
+8281 is an S-number:
+
+sq.rt of 8281 = 8 + 2 + 81 = 82 + 8 + 1
+
+
+
+9801 is an S-number:
+
+sq.rt of 9801 = 98 + 0 + 1.
+
+
+
+Further we define T(N) to be the sum of all S numbers (n le N). You are given T(10 pow 4) =41333.
+
+Find T(10 pow 12).
+        * */
+
+
+    }
+
 }
